@@ -4,7 +4,7 @@ import arrowUp from "@/images/icon-arrow-up.svg";
 import arrowDown from "@/images/icon-arrow-down.svg";
 import audiophile from "@/images/client-audiophile.svg";
 import databiz from "@/images/client-databiz.svg";
-import marker from "@/images/client-marker.svg";
+import maker from "@/images/client-maker.svg";
 import meet from "@/images/client-meet.svg";
 import calendar from "@/images/icon-calendar.svg";
 import close from "@/images/icon-close-menu.svg";
@@ -14,6 +14,7 @@ import reminders from "@/images/icon-reminders.svg";
 import todo from "@/images/icon-todo.svg";
 import heroDesktop from "@/images/image-hero-desktop.png";
 import heroMobile from "@/images/image-hero-mobile.png";
+import { markAsUntransferable } from "worker_threads";
 
 export default function Home() {
   return (
@@ -27,14 +28,13 @@ export default function Home() {
               <p>Features</p> <Image src={arrowDown} alt={"arrowdoun"} />
               <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
             </div>
-           <div className="flex flex-col">
-           <div className="flex items-center gap-1">
-              {" "}
-              <p>Company</p> <Image src={arrowDown} alt={"arrowdoun"} />
-              <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
+            <div className="flex flex-col">
+              <div className="flex items-center gap-1">
+                {" "}
+                <p>Company</p> <Image src={arrowDown} alt={"arrowdoun"} />
+                <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
+              </div>
             </div>
-           
-           </div>
 
             <p>Careers</p>
             <p>About</p>
@@ -47,23 +47,48 @@ export default function Home() {
           </button>
         </div>
       </div>
+<div className="flex p-20 gap-6 ">
+  <div className="flex flex-col gap-14 text-black mt-16">
+    <p className="font-bold text-6xl ">Make remote work</p>
+    <p className=" text-sm">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+    <button className="rounded-lg bg-black text-white hover:bg-white hover:text-black hover:border hover:border-black  w-28 p-2">Learn more</button>
+    <div className="flex items-center gap-4">
+      <Image src={databiz} alt={""}/>
+      <Image src={audiophile} alt={""}/>
+      <Image src={meet} alt={""}/>
+      <Image src={maker} alt={""}/>
+      </div>
+  </div>
+<div className="bg-green-300">
+<Image className="" src={heroDesktop} alt={""}/>
+  </div></div>
+      <div className="flex gap-6 absolute top-12 left-24">
+        <div className="flex flex-col text-black rounded-lg p-4 gap-2 shadow-lg  ">
+          <div className="flex  items-center gap-2 ">
+            <Image src={todo} alt={"Todo List"} />
+            <p>Todo List</p>{" "}
+          </div>
 
-     <div className="flex gap-6 ml-16">
-     <div className="flex flex-col text-black rounded-lg p-6 gap-2 shadow-lg">
-            <div className="flex  items-center gap-2"><Image src={todo} alt={"Todo List"} /><p>Todo List</p> </div>
-            
-             <div className="flex  items-center gap-2"><Image src={calendar} alt={"Calendar"} /><p>Calendar</p> </div>  
-             <div className="flex  items-center gap-2"><Image src={reminders} alt={"Reminders"} /><p>
-Reminders</p> </div>  
-             <div className="flex  items-center gap-2"><Image src={planning} alt={"Planning"} /><p>Planning</p> </div>  
-            </div>
+          <div className="flex  items-center gap-2">
+            <Image src={calendar} alt={"Calendar"} />
+            <p>Calendar</p>{" "}
+          </div>
+          <div className="flex  items-center gap-2">
+            <Image src={reminders} alt={"Reminders"} />
+            <p>Reminders</p>{" "}
+          </div>
+          <div className="flex  items-center gap-2">
+            <Image src={planning} alt={"Planning"} />
+            <p>Planning</p>{" "}
+          </div>
+        </div>
 
-           <div className=" flex flex-col rounded-lg p-6 h-full text-black gap-2 shadow-lg">
-            <p className="">History</p>
-            <p className="">Our Team</p>
-            <p className="">Blog</p>
-           </div>
-     </div>
+        <div className=" flex flex-col rounded-lg p-4 h-full text-black gap-2 shadow-lg ">
+          <p className="">History</p>
+          <p className="">Our Team</p>
+          <p className="">Blog</p>
+        </div>
+      </div>
     </main>
   );
 }
