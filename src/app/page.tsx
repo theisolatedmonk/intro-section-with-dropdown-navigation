@@ -18,11 +18,12 @@ import { markAsUntransferable } from "worker_threads";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col  py-4 px-8 bg-white">
+    <main className="flex min-h-screen flex-col  sm:py-4 sm:px-8 bg-white w-full h-full gap-4 sm:gap-0 ">
       <div className="flex justify-between w-full">
-        <div className="flex w-full text-black gap-10 items-center">
+        <div className="flex w-full text-black sm:gap-10 items-center justify-between sm:justify-norma p-4 sm:p-0">
           <Image src={logo} alt={"logo"} />
-          <div className="flex gap-8 p-2 items-center">
+          <Image className="sm:hidden" src={menu} alt={"logo"} />
+          <div className=" hidden gap-8 p-2 items-center sm:flex">
             <button className="flex items-center gap-1">
               {" "}
               <p>Features</p> <Image src={arrowDown} alt={"arrowdoun"} />
@@ -40,29 +41,31 @@ export default function Home() {
             <button>About</button>
           </div>
         </div>
-        <div className="flex  text-black gap-8">
+        <div className="sm:flex  text-black gap-8 hidden">
           <p className="p-2">login</p>
           <button className="border-black border rounded-xl px-4 py-1">
             Register
           </button>
         </div>
       </div>
-<div className="flex  justify-between  gap-14 p-[70px] ">
-  <div className="flex  justify-between flex-col gap-14  text-black w-[44%] px-11  text-left py-20">
-    <p className="font-bold text-6xl ">Make remote work</p>
-    <p className=" ">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
-    <button className="rounded-lg bg-black text-white hover:bg-white hover:text-black hover:ring-1 hover:ring-black  w-28 p-2">Learn more</button>
-    <div className="flex items-center justify-between gap-4">
-      <Image src={databiz} alt={""}/>
-      <Image src={audiophile} alt={""}/>
-      <Image src={meet} alt={""}/>
-      <Image src={maker} alt={""}/>
+<div className="flex sm:flex-row flex-col justify-between  gap- sm:p-[70px] ">
+<Image className=" flex sm:hidden " src={heroMobile} alt={""}/>
+  <div className="flex  justify-between flex-col sm:gap-14  text-black sm:w-[44%] sm:px-11  text-left sm:py-20 items-center sm:items-start  p-4 gap-6 bg-slate-500">
+    <p className="font-bold sm:text-6xl text-4xl text-center sm:text-left">Make remote work</p>
+    <p className=" text-center sm:text-left">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+    <button className="rounded-lg bg-black text-white hover:bg-white hover:text-black hover:ring-1 hover:ring-black  w-28 p-2 ">Learn more</button>
+    <div className="flex items-center justify-between  sm:gap-8 h-full w-auto gap-2  mb-4">
+      <Image  className="w-20 h-auto" src={databiz} alt={""}/>
+      <Image className="w-20 h-auto" src={audiophile} alt={""}/>
+      <Image className="w-20 h-auto" src={meet} alt={""}/>
+      <Image className="w-20 h-auto" src={maker} alt={""}/>
       </div>
 
   </div>
-  <Image className="h-[460px] w-[40%]" src={heroDesktop} alt={""}/>
+  <Image className="h-[460px] w-[40%] sm:flex hidden " src={heroDesktop} alt={""}/>
+
 </div>
-      <div className="flex gap-6 absolute top-12 left-28">
+      <div className="sm:flex  gap-6 absolute top-12 left-28 hidden ">
         <div className="flex flex-col text-black rounded-lg p-4 gap-2 shadow-lg  ">
           <div className="flex  items-center gap-2 ">
             <Image src={todo} alt={"Todo List"} />
@@ -89,6 +92,7 @@ export default function Home() {
           <p className="">Blog</p>
         </div>
       </div>
+      <div className="absolute w-52 right-0 h-full bg-yellow-100 sm:hidden"></div>
     </main>
   );
 }
