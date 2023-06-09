@@ -18,51 +18,51 @@ import { markAsUntransferable } from "worker_threads";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col   p-4 bg-white">
+    <main className="flex min-h-screen flex-col  py-4 px-8 bg-white">
       <div className="flex justify-between w-full">
         <div className="flex w-full text-black gap-10 items-center">
           <Image src={logo} alt={"logo"} />
           <div className="flex gap-8 p-2 items-center">
-            <div className="flex items-center gap-1">
+            <button className="flex items-center gap-1">
               {" "}
               <p>Features</p> <Image src={arrowDown} alt={"arrowdoun"} />
               <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
-            </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1">
+            </button>
+           
+              <button className="flex items-center gap-1">
                 {" "}
                 <p>Company</p> <Image src={arrowDown} alt={"arrowdoun"} />
                 <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
-              </div>
-            </div>
+              </button>
+            
 
-            <p>Careers</p>
-            <p>About</p>
+            <button>Careers</button>
+            <button>About</button>
           </div>
         </div>
-        <div className="flex  text-black gap-4">
+        <div className="flex  text-black gap-8">
           <p className="p-2">login</p>
-          <button className="border-black border rounded-xl p-2">
+          <button className="border-black border rounded-xl px-4 py-1">
             Register
           </button>
         </div>
       </div>
-<div className="flex p-20 gap-6 ">
-  <div className="flex flex-col gap-14 text-black mt-16">
+<div className="flex  justify-between  gap-14 p-[70px] ">
+  <div className="flex  justify-between flex-col gap-14  text-black w-[44%] px-11  text-left py-20">
     <p className="font-bold text-6xl ">Make remote work</p>
-    <p className=" text-sm">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
-    <button className="rounded-lg bg-black text-white hover:bg-white hover:text-black hover:border hover:border-black  w-28 p-2">Learn more</button>
-    <div className="flex items-center gap-4">
+    <p className=" ">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+    <button className="rounded-lg bg-black text-white hover:bg-white hover:text-black hover:ring-1 hover:ring-black  w-28 p-2">Learn more</button>
+    <div className="flex items-center justify-between gap-4">
       <Image src={databiz} alt={""}/>
       <Image src={audiophile} alt={""}/>
       <Image src={meet} alt={""}/>
       <Image src={maker} alt={""}/>
       </div>
+
   </div>
-<div className="bg-green-300">
-<Image className="" src={heroDesktop} alt={""}/>
-  </div></div>
-      <div className="flex gap-6 absolute top-12 left-24">
+  <Image className="h-[460px] w-[40%]" src={heroDesktop} alt={""}/>
+</div>
+      <div className="flex gap-6 absolute top-12 left-28">
         <div className="flex flex-col text-black rounded-lg p-4 gap-2 shadow-lg  ">
           <div className="flex  items-center gap-2 ">
             <Image src={todo} alt={"Todo List"} />
