@@ -15,39 +15,14 @@ import todo from "@/images/icon-todo.svg";
 import heroDesktop from "@/images/image-hero-desktop.png";
 import heroMobile from "@/images/image-hero-mobile.png";
 import { markAsUntransferable } from "worker_threads";
+import { CompanyDropdown, DropdownButton, FeaturesDropdown, LinkButton } from "./Dropdown";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col  sm:py-4 sm:px-8 bg-white w-full h-full gap-4 sm:gap-0 ">
-      <div className="flex justify-between w-full">
-        <div className="flex w-full text-black sm:gap-10 items-center justify-between sm:justify-norma p-4 sm:p-0">
-          <Image src={logo} alt={"logo"} />
-          <Image className="sm:hidden" src={menu} alt={"logo"} />
-          <div className=" hidden gap-8 p-2 items-center sm:flex">
-            <button className="flex items-center gap-1">
-              {" "}
-              <p>Features</p> <Image src={arrowDown} alt={"arrowdoun"} />
-              <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
-            </button>
-           
-              <button className="flex items-center gap-1">
-                {" "}
-                <p>Company</p> <Image src={arrowDown} alt={"arrowdoun"} />
-                <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
-              </button>
-            
+     
 
-            <button>Careers</button>
-            <button>About</button>
-          </div>
-        </div>
-        <div className="sm:flex  text-black gap-8 hidden">
-          <p className="p-2">login</p>
-          <button className="border-black border rounded-xl px-4 py-1">
-            Register
-          </button>
-        </div>
-      </div>
+     <DropdownButton/>
 <div className="flex sm:flex-row flex-col justify-between  gap- sm:p-[70px] ">
 <Image className=" flex sm:hidden " src={heroMobile} alt={""}/>
   <div className="flex  justify-between flex-col sm:gap-14  text-black sm:w-[44%] sm:px-11  text-left sm:py-20 items-center sm:items-start  p-4 gap-6 bg-slate-500">
@@ -63,36 +38,29 @@ export default function Home() {
 
   </div>
   <Image className="h-[460px] w-[40%] sm:flex hidden " src={heroDesktop} alt={""}/>
-
+  <div className="  hidden sm:flex  gap-6 absolute top-12 left-28  ">
+     
+     <FeaturesDropdown/>
+     <CompanyDropdown/>
+       
+     </div>
 </div>
-      <div className="sm:flex  gap-6 absolute top-12 left-28 hidden ">
-        <div className="flex flex-col text-black rounded-lg p-4 gap-2 shadow-lg  ">
-          <div className="flex  items-center gap-2 ">
-            <Image src={todo} alt={"Todo List"} />
-            <p>Todo List</p>{" "}
-          </div>
 
-          <div className="flex  items-center gap-2">
-            <Image src={calendar} alt={"Calendar"} />
-            <p>Calendar</p>{" "}
-          </div>
-          <div className="flex  items-center gap-2">
-            <Image src={reminders} alt={"Reminders"} />
-            <p>Reminders</p>{" "}
-          </div>
-          <div className="flex  items-center gap-2">
-            <Image src={planning} alt={"Planning"} />
-            <p>Planning</p>{" "}
-          </div>
+      <div className="absolute w-full flex  bg-black bg-opacity-60 sm:hidden right-0 justify-end  h-full">
+      <div className="w-[60%] right-0  h-full bg-gray-100 text-black p-4">
+      <div className="w-full flex  justify-end ">
+        <Image className=" " src={close} alt={""}/>
         </div>
-
-        <div className=" flex flex-col rounded-lg p-4 h-full text-black gap-2 shadow-lg ">
-          <p className="">History</p>
-          <p className="">Our Team</p>
-          <p className="">Blog</p>
-        </div>
+        <LinkButton />
+        <div className="flex  text-black gap-4 items-center flex-col ">
+        <p className="p-2">Login</p>
+        <button className="border-black border rounded-xl p-2 w-full">
+          Register
+        </button>
       </div>
-      <div className="absolute w-52 right-0 h-full bg-yellow-100 sm:hidden"></div>
+      </div>
+
+      </div>
     </main>
   );
 }
