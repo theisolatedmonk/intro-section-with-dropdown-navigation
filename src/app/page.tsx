@@ -25,7 +25,7 @@ export default function Home() {
      <DropdownButton/>
 <div className="flex sm:flex-row flex-col justify-between  gap- sm:p-[70px] ">
 <Image className=" flex sm:hidden " src={heroMobile} alt={""}/>
-  <div className="flex  justify-between flex-col sm:gap-14  text-black sm:w-[50%] sm:px-11  text-left sm:py-20 items-center sm:items-start  p-4 gap-10 ">
+  <div className="flex  justify-between flex-col sm:gap-14  text-black sm:w-[70%] sm:px-11  text-left sm:py-20 items-center sm:items-start  p-4 gap-10 ">
     <p className="font-bold sm:text-6xl text-4xl text-center sm:text-left">Make remote work</p>
     <p className=" text-center sm:text-left">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
     <button className="rounded-lg bg-black text-white hover:bg-white hover:text-black hover:ring-1 hover:ring-black  w-28 p-2 ">Learn more</button>
@@ -37,7 +37,7 @@ export default function Home() {
       </div>
 
   </div>
-  <div className=" sm:flex hidden h-full w-full   bg-black justify-end"><Image className=" h-auto w-[65%]  " src={heroDesktop} alt={""}/></div>
+  <div className=" sm:flex hidden h-full w-full    justify-end"><Image className=" h-auto w-[65%]  " src={heroDesktop} alt={""}/></div>
 
   <div className="  hidden sm:flex  gap-6 absolute top-12 left-28  ">
      
