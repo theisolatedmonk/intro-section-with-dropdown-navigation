@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import logo from "@/images/logo.svg";
 import arrowUp from "@/images/icon-arrow-up.svg";
@@ -15,14 +16,17 @@ import todo from "@/images/icon-todo.svg";
 import heroDesktop from "@/images/image-hero-desktop.png";
 import heroMobile from "@/images/image-hero-mobile.png";
 import { markAsUntransferable } from "worker_threads";
-import { CompanyDropdown, DropdownButton, FeaturesDropdown, LinkButton } from "./Dropdown";
+// import NavItem from "./test/page";
+import { NavItem } from "./Dropdown";
+
+// import { CompanyDropdown, DropdownButton, FeaturesDropdown, LinkButton } from "./Dropdown";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col  sm:py-4 sm:px-8 bg-white w-full h-full gap-4 sm:gap-0 ">
      
-
-     <DropdownButton/>
+     <NavItem/>
+     {/* <DropdownButton/> */}
 <div className="flex sm:flex-row flex-col justify-between  gap- sm:p-[70px] ">
 <Image className=" flex sm:hidden " src={heroMobile} alt={""}/>
   <div className="flex  justify-between flex-col sm:gap-14  text-black sm:w-[70%] sm:px-11  text-left sm:py-20 items-center sm:items-start  p-4 gap-10 ">
@@ -40,9 +44,9 @@ export default function Home() {
   <div className=" sm:flex hidden h-full w-full    justify-end"><Image className=" h-auto w-[65%]  " src={heroDesktop} alt={""}/></div>
 
   <div className="  hidden sm:flex  gap-6 absolute top-12 left-28  ">
-     
+{/*      
      <FeaturesDropdown/>
-     <CompanyDropdown/>
+     <CompanyDropdown/> */}
        
      </div>
 </div>
@@ -52,7 +56,7 @@ export default function Home() {
       <div className="w-full flex  justify-end ">
         <Image className=" " src={close} alt={""}/>
         </div>
-        <LinkButton />
+        {/* <LinkButton /> */}
         <div className="flex  text-black gap-4 items-center flex-col ">
         <p className="p-2">Login</p>
         <button className="border-black border rounded-xl p-2 w-full">

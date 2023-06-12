@@ -1,5 +1,16 @@
-import React from "react";
+"use client";
+
+import clsx from "clsx";
 import Image from "next/image";
+import { useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { BiChevronDown } from "react-icons/bi";
+import useOnclickOutside from "react-cool-onclickoutside";
+
+
+
+import React from "react";
+// import Image from "next/image";
 import logo from "@/images/logo.svg";
 import arrowUp from "@/images/icon-arrow-up.svg";
 import arrowDown from "@/images/icon-arrow-down.svg";
@@ -17,90 +28,205 @@ import heroDesktop from "@/images/image-hero-desktop.png";
 import heroMobile from "@/images/image-hero-mobile.png";
 import { markAsUntransferable } from "worker_threads";
 
-export function FeaturesDropdown() {
-  return (
-    <div className="flex flex-col text-black rounded-lg p-4 gap-2 sm:shadow-lg  ">
-        <div className="flex  items-center gap-2 ">
-          <Image src={todo} alt={"Todo List"} />
-          <p>Todo List</p>{" "}
-        </div>
+// export function FeaturesDropdown() {
+//   return (
+//     <div className="flex flex-col text-black rounded-lg p-4 gap-2 sm:shadow-lg  ">
+//       <div className="flex  items-center gap-2 ">
+//         <Image src={todo} alt={"Todo List"} />
+//         <p>Todo List</p>{" "}
+//       </div>
 
-        <div className="flex  items-center gap-2">
-          <Image src={calendar} alt={"Calendar"} />
-          <p>Calendar</p>{" "}
-        </div>
-        <div className="flex  items-center gap-2">
-          <Image src={reminders} alt={"Reminders"} />
-          <p>Reminders</p>{" "}
-        </div>
-        <div className="flex  items-center gap-2">
-          <Image src={planning} alt={"Planning"} />
-          <p>Planning</p>{" "}
-        </div>
-      </div>
-  );
-}
-export function CompanyDropdown() {
-  return (
-    <div className=" flex flex-col rounded-lg p-4 h-full text-black gap-2 shadow-lg ">
-    <p className="">History</p>
-    <p className="">Our Team</p>
-    <p className="">Blog</p>
-  </div>
-  );
-}
+//       <div className="flex  items-center gap-2">
+//         <Image src={calendar} alt={"Calendar"} />
+//         <p>Calendar</p>{" "}
+//       </div>
+//       <div className="flex  items-center gap-2">
+//         <Image src={reminders} alt={"Reminders"} />
+//         <p>Reminders</p>{" "}
+//       </div>
+//       <div className="flex  items-center gap-2">
+//         <Image src={planning} alt={"Planning"} />
+//         <p>Planning</p>{" "}
+//       </div>
+//     </div>
+//   );
+// }
 
-export function DropdownButton() {
+interface DropdownItemType {
+  name: string;
+  dropDown: { icon: string; name: string }[];
+}
+const navItems = [
+  {
+    name: "Features",
+    dropDown: [
+      {
+        icon: "icon1",
+        name: "Todo List",
+      },
+      {
+        icon: "icon2",
+        name: "Calendar",
+      },
+      {
+        icon: "icon3",
+        name: "Remidders",
+      },
+    ],
+  },
+  {
+    name: "feature 2",
+    dropDown: [
+      {
+        icon: "icon1",
+        name: "Todo List",
+      },
+      {
+        icon: "icon2",
+        name: "Calendar",
+      },
+      {
+        icon: "icon3",
+        name: "Remidders",
+      },
+    ],
+  },
+  { name: "Careers" },
+  { name: "About" },
+];
+
+function DropdownItem({ dropDown, name }: DropdownItemType) {
+  const [isDropDownOpen, setDropDown] = useState(false);
+
+  const [animationParent] = useAutoAnimate();
+  const ref = useOnclickOutside(() => {
+    setDropDown(false);
+  });
+
+  function openDropDown() {
+    console.log("drop down clicked", isDropDownOpen.toString());
+
+    setDropDown(!isDropDownOpen);
+  }
+
   return (
-    <div className="flex justify-between w-full">
-      <div className="flex w-full text-black sm:gap-10 items-center justify-between sm:justify-normal p-4 sm:p-0">
-        <Image src={logo} alt={"logo"} />
-        <Image className="sm:hidden" src={menu} alt={"logo"} />
-        <div className=" hidden   sm:flex">
-          {" "}
-          <LinkButton />
+    <div ref={ref}>
+      <main
+        ref={animationParent}
+        onClick={openDropDown}
+        className="relative cursor-pointer"
+      >
+        <div className="flex gap-2 items-center">
+          <p>{name}</p>
+          <BiChevronDown
+            className={clsx(" transition-all", { "rotate-180 ": isDropDownOpen })}
+          />
         </div>
-      </div>
-      <div className="sm:flex  text-black gap-8 hidden">
-        <p className="p-2">login</p>
-        <button className="border-black border rounded-xl px-4 py-1">
-          Register
-        </button>
-      </div>
+        {isDropDownOpen && (
+          <div className="flex flex-col text-black rounded-lg p-4 gap-2 sm:shadow-lg  border-2 sm:absolute  bg-white  h-auto  ">
+            {dropDown.map((item) => (
+              <>
+                {item && <Image src={""} alt={"Todo List"} />}
+                <p>{item.name}</p>
+              </>
+            ))}
+          </div>
+        )}
+      </main>
     </div>
   );
 }
-
-
-
-
 
 type Props = {};
-
-export function LinkButton() {
+export function NavItem({}: Props) {
   return (
-    <div className="flex flex-col sm:flex-row sm:gap-8 gap-4 sm:p-2 p-4 sm:justify-between items-start">
-
-<div className="flex flex-col">
-      <button className="flex items-center gap-1">
-        {" "}
-        <p>Features</p> <Image src={arrowDown} alt={"arrowdoun"} />
-        <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
-      </button>
-     <div className="sm:hidden"> <CompanyDropdown/></div>
-      </div>
-      <div className="flex flex-col">
-      <button className="flex items-center gap-1">
-        {" "}
-        <p>Company</p> <Image src={arrowDown} alt={"arrowdoun"} />
-        <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
-        
-      </button>
-     <div className="sm:hidden"> <CompanyDropdown /></div>
-      </div>
+    <div className="sm:flex-row flex flex-col text-black rounded-lg p-4 gap-2 sm:shadow-lg h-full  ">
      
-      <button>Careers</button>
-      <button>About</button>
+     {/* {navItems.map((item) => (
+            <section>
+              {item.dropDown ? (
+                <DropdownItem dropDown={item.dropDown} name={item.name} />
+              ) : (
+                <p>{item.name}</p>
+              )}
+            </section>   
+          ))} */}
+     
+      {navItems.map(( item, index) => (
+        <div key={index} className="flex  items-center gap-2 ">
+           {item.dropDown ? (
+                <DropdownItem dropDown={item.dropDown} name={item.name} />
+              ) : (
+                <p>{item.name}</p>
+              )}
+        </div>
+      ))}
     </div>
   );
 }
+
+
+
+
+
+// export function CompanyDropdown() {
+//   return (
+//     <div className=" flex flex-col rounded-lg p-4 h-full text-black gap-2 shadow-lg ">
+//       <p className="">History</p>
+//       <p className="">Our Team</p>
+//       <p className="">Blog</p>
+//     </div>
+//   );
+// }
+
+// export function DropdownButton() {
+//   return (
+//     <div className="flex justify-between w-full">
+//       <div className="flex w-full text-black sm:gap-10 items-center justify-between sm:justify-normal p-4 sm:p-0">
+//         <Image src={logo} alt={"logo"} />
+//         <Image className="sm:hidden" src={menu} alt={"logo"} />
+//         <div className=" hidden   sm:flex">
+//           {" "}
+//           <LinkButton />
+//         </div>
+//       </div>
+//       <div className="sm:flex  text-black gap-8 hidden">
+//         <p className="p-2">login</p>
+//         <button className="border-black border rounded-xl px-4 py-1">
+//           Register
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// type Props = {};
+
+// export function LinkButton() {
+//   return (
+//     <div className="flex flex-col sm:flex-row sm:gap-8 gap-4 sm:p-2 p-4 sm:justify-between items-start">
+//       <div className="flex flex-col">
+//         <button className="flex items-center gap-1">
+//           {" "}
+//           <p>Features</p> <Image src={arrowDown} alt={"arrowdoun"} />
+//           <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
+//         </button>
+//         <div className="sm:hidden"> {/* <CompanyDropdown /> */}</div>
+//       </div>
+//       <div className="flex flex-col">
+//         <button className="flex items-center gap-1">
+//           {" "}
+//           <p>Company</p> <Image src={arrowDown} alt={"arrowdoun"} />
+//           <Image className="hidden" src={arrowUp} alt={"arrowdoun"} />
+//         </button>
+//         <div className="sm:hidden">
+//           {" "}
+//           <CompanyDropdown />
+//         </div>
+//       </div>
+
+//       <button>Careers</button>
+//       <button>About</button>
+//     </div>
+//   );
+// }
