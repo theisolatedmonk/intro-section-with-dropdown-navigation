@@ -30,8 +30,9 @@ type MenuType = {
 
 export default function MobileMenu(props:MenuType) {
   return (
-    <div className={'fixed w-full flex  bg-black bg-opacity-60 sm:hidden right-0 justify-end  h-full  z-50 ${props.class}'}>
-        <div className="w-[60%] right-0  h-full bg-gray-100 text-black p-4">
+    
+    <div className={'fixed inset-0 flex items-center justify-end bg-black bg-opacity-60   '}>
+        <div className="w-[60%]    h-full bg-gray-100 text-black p-4">
           <div className="w-full flex  justify-end ">
           <button onClick={props.onCloseClick}>
             <Image className=" " src={close} alt={""} />

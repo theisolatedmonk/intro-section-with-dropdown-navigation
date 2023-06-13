@@ -30,7 +30,7 @@ export default function Header() {
       }
     >
       <Image className="w-20 h-auto flex " src={logo} alt={""} />
-     <button  onClick={handleMenuClick} > <Image className="w-20 h-auto flex sm:hidden" src={menu} alt={""} /></button>
+     <button  onClick={handleMenuClick} className=" flex sm:hidden" > <Image className=" flex sm:hidden" src={menu} alt={""} /></button>
       <div className="sm:flex justify-between w-full hidden">
         {" "}
         <NavItem />
