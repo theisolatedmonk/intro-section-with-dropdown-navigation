@@ -1,14 +1,11 @@
 "use client"
 
 import React, { useState } from "react";
-
 import Image from "next/image";
 import logo from "@/images/logo.svg";
 import menu from "@/images/icon-menu.svg";
-
 import { NavItem } from "./Dropdown";
 import MobileMenu from "./MobileMenu";
-// import NavItem from "./test/page";
 
 type Props = {};
 
@@ -26,7 +23,7 @@ export default function Header() {
   return (
     <div
       className={
-        "flex items-center w-full sm:justify-normal justify-between gap-4 bg-gray-600 p-4 "
+        "flex items-center w-full  justify-between gap-4 sm:gap-8   p-4 "
       }
     >
       <Image className="w-20 h-auto flex " src={logo} alt={""} />
